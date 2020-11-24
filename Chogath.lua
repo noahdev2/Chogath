@@ -279,7 +279,7 @@ function Chogath.Waveclear()
         for k, v in pairs(ObjManager.Get("neutral", "minions")) do
             local minion = v.AsAI
             local minionInRange = spells.Q:IsInRange(minion)
-            if minionInRange and minion.IsMonster  and minion.IsTargetable then
+            if minionInRange and minion.MaxHealth > 6 and minion.IsMonster  and minion.IsTargetable then
                 if spells.Q:IsReady() then spells.Q:CastOnHitChance(minion,Enums.HitChance.Low)
                     return
                 end     
@@ -290,7 +290,7 @@ function Chogath.Waveclear()
         for k, v in pairs(ObjManager.Get("neutral", "minions")) do
             local minion = v.AsAI
             local minionInRange = spells.W:IsInRange(minion)
-            if minionInRange and minion.IsMonster  and minion.IsTargetable then
+            if minionInRange and minion.MaxHealth and minion.IsMonster  and minion.IsTargetable then
                 if spells.W:IsReady() then spells.W:CastOnHitChance(minion,Enums.HitChance.Low)
                     return
                 end     
